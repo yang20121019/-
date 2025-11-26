@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐 贺炜然</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .birthday-person {
+            font-size: 2.2rem;
+            color: #ff4757;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        .surprise-btn {
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            margin-bottom: 30px;
+        }
+        
+        .surprise-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .surprise-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .surprise-text {
+            font-size: 1.5rem;
+            color: #ff4757;
+            font-weight: bold;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            min-height: 40px;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .balloon:before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 15px;
+            background: #ff6b6b;
+            bottom: -15px;
+            left: 20px;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .balloon:after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: #ccc;
+            bottom: -65px;
+            left: 24px;
+        }
+        
+        .balloon:nth-child(2n) {
+            background: #4ecdc4;
+        }
+        
+        .balloon:nth-child(2n):before {
+            background: #4ecdc4;
+        }
+        
+        .balloon:nth-child(3n) {
+            background: #ffe66d;
+        }
+        
+        .balloon:nth-child(3n):before {
+            background: #ffe66d;
+        }
+        
+        .cake {
+            width: 150px;
+            height: 80px;
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        .cake-base {
+            width: 150px;
+            height: 40px;
+            background: #f8c291;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .cake-top {
+            width: 130px;
+            height: 30px;
+            background: #e55039;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            top: -30px;
+            left: 10px;
+        }
+        
+        .candle {
+            width: 10px;
+            height: 30px;
+            background: #fff;
+            position: absolute;
+            top: -60px;
+            left: 70px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .flame {
+            width: 15px;
+            height: 20px;
+            background: #ff9f43;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -80px;
+            left: 67.5px;
+            animation: flicker 1s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .birthday-person {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 气球装饰 -->
+    <div class="balloon" style="top: 10%; left: 5%;"></div>
+    <div class="balloon" style="top: 15%; left: 15%;"></div>
+    <div class="balloon" style="top: 5%; left: 25%;"></div>
+    <div class="balloon" style="top: 20%; left: 85%;"></div>
+    <div class="balloon" style="top: 10%; left: 75%;"></div>
+    <div class="balloon" style="top: 25%; left: 90%;"></div>
+    
+    <div class="container">
+        <h1>生日快乐</h1>
+        <div class="birthday-person">贺炜然</div>
+        
+        <div class="cake">
+            <div class="cake-base"></div>
+            <div class="cake-top"></div>
+            <div class="candle"></div>
+            <div class="flame"></div>
+        </div>
+        
+        <p class="message">
+            在这个特别的日子里，愿你所有的愿望都能实现，所有的梦想都能成真！<br>
+            愿你的每一天都充满阳光和欢笑，每一刻都洋溢着幸福和温馨！
+        </p>
+        
+        <button class="surprise-btn" id="surpriseBtn">惊喜</button>
+        <div class="surprise-text" id="surpriseText"></div>
+    </div>
+
+    <script>
+        document.getElementById('surpriseBtn').addEventListener('click', function() {
+            const surpriseText = document.getElementById('surpriseText');
+            surpriseText.textContent = "贺炜然78没了";
+            surpriseText.style.opacity = 1;
+            
+            // 创建彩色纸屑效果
+            createConfetti();
+            
+            // 添加气球动画
+            animateBalloons();
+        });
+        
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9f43', '#a29bfe'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                document.body.appendChild(confetti);
+                
+                // 动画
+                const animation = confetti.animate([
+                    { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: 2000 + Math.random() * 3000,
+                    easing: 'cubic-bezier(0.1, 0.2, 0.8, 0.9)'
+                });
+                
+                animation.onfinish = () => {
+                    confetti.remove();
+                };
+            }
+        }
+        
+        function animateBalloons() {
+            const balloons = document.querySelectorAll('.balloon');
+            
+            balloons.forEach(balloon => {
+                // 随机动画
+                const animation = balloon.animate([
+                    { transform: 'translateY(0)' },
+                    { transform: 'translateY(-20px)' }
+                ], {
+                    duration: 1000 + Math.random() * 1000,
+                    iterations: 3,
+                    direction: 'alternate'
+                });
+            });
+        }
+    </script>
+</body>
+</html>
